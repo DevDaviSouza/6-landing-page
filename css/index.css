@@ -26,6 +26,7 @@ header {
     left: 0;
     width: 100%;
     display: flex;
+    height: 12vh;
     justify-content: space-between;
     align-items: center;
     padding: 20px 100px;
@@ -48,9 +49,19 @@ header {
 }
 /* Ao passar o mouse sobre a logo, ela gira 540 graus e aumenta 1.2x de tamanho, com uma transição suave de 0,5s. */
 
+nav{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 55rem;
+    align-items: center;
+
+}
+
 .nav {
     display: flex;
-    width: 100%;
+    
     justify-content: space-around;
 }
 /* A navegação usa um layout flexível, ocupando 100% da largura, com os itens distribuídos de maneira uniforme. */
@@ -423,3 +434,65 @@ button{
 }
 /* O iframe à direita do banner tem largura máxima de 450px e altura máxima de 250px. */
 
+.mobile-menu{ 
+    cursor: pointer;
+    display: none;
+}
+
+.mobile-menu div{
+    width: 32px;
+    height: 2px;
+    background-color: #fff;
+    margin: 8px;
+}
+
+@media (max-width: 1045px) {
+    html{
+        overflow-x: hidden;
+    }
+    
+    nav {
+        position: absolute;
+        top: 12vh;
+        right: 0;
+        width: 50vw !important;
+        height: 88vh;
+
+        flex-direction: column;
+        flex-direction: column;
+        justify-content: start !important;
+        background-color: #ff0000;
+        padding: 0px;
+        transform: translateX(100%);
+        transition: transform 0.2s ease-in;
+    }
+
+    nav.active {
+        transform: translateX(0%);
+    }
+
+    .search{display: none;}
+
+    .nav{
+        flex-direction: column;
+        justify-content: space-around !important;
+        
+        height: 30vh;
+        margin: 0px !important;
+    }
+
+    header{
+        padding: 10px 20px;
+    }
+
+
+    .mobile-menu{
+        display: block;
+    }
+
+    .champion{
+        width: 60% !important;
+        height: 50% !important;
+    }
+
+}

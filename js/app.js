@@ -81,3 +81,37 @@ fechar.addEventListener('click', () => {
         console.error('Elemento com a classe "fechar" não encontrado!')
     }
 })
+
+class Menu {
+    constructor(mobileMenu, li, nav) {
+        this.menuMobile = document.querySelector(mobileMenu)
+        this.links = document.querySelectorAll(li)
+        this.navbar = document.querySelector(nav)
+        this.activeClass = "active"
+
+        this.handleClick = this.handleClick.bind(this)
+    }
+
+
+    handleClick() {
+        this.navbar.classList.toggle(this.activeClass)
+    }
+
+    addClickEvent() {
+        this.menuMobile.addEventListener("click", () => {
+            this.handleClick()
+        })
+    }
+
+    init() {
+        if (this.menuMobile) {
+            this.addClickEvent()
+        }
+
+        return true
+    }
+}
+
+const menu = new Menu(".mobile-menu", "li", "nav")
+
+menu.init()
